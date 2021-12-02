@@ -1,0 +1,30 @@
+[submodule "catkin_ws/src/iam-web-msgs"]
+	path = catkin_ws/src/iam-web-msgs
+	url = https://github.com/iamlab-cmu/iam-web-msgs.git
+[submodule "iam-bt"]
+	path = iam-bt
+	url = https://github.com/iamlab-cmu/iam-bt.git
+[submodule "iam-bokeh-server"]
+	path = iam-bokeh-server
+	url = https://github.com/iamlab-cmu/iam-bokeh-server.git
+[submodule "iam-domain-handler"]
+	path = iam-domain-handler
+	url = https://github.com/iamlab-cmu/iam-domain-handler.git
+[submodule "iam-skills"]
+	path = iam-skills
+	url = https://github.com/iamlab-cmu/iam-skills.git
+[submodule "iam-vision"]
+	path = iam-vision
+	url = https://github.com/iamlab-cmu/iam-vision.git
+[submodule "pillar-state"]
+	path = pillar-state
+	url = https://github.com/iamlab-cmu/pillar-state.git
+[submodule "pillar-skills"]
+	path = pillar-skills
+	url = https://github.com/iamlab-cmu/pillar-skills.git
+[submodule "voxel-publisher"]
+	path = voxel-publisher
+	url = https://github.com/iamlab-cmu/voxel-publisher.git
+[submodule "web-interface"]
+	path = web-interface
+	url = https://github.com/iamlab-cmu/web-interface.git
