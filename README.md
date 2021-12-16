@@ -111,7 +111,7 @@
    npm start
    ```
 
-2. Navigate on a web browser to `http://<your_ip_address>:9080/javascript/example/simple.html`
+2. Navigate on a web browser to `http://<your_ip_address>:9080/javascript/example/index.html`
 
 3. Open a new terminal and run the following commands: (Terminal 2)
    ```bash
@@ -176,7 +176,7 @@
 
 13. Open a new terminal and run the following commands: (Terminal 12)
    ```bash
-   cd /path/to/iam-interface/iam-domain-handler
+   cd /path/to/iam-interface/iam-bt
    source /path/to/virtualenv/bin/activate 
-   python examples/run_human_domain_client.py
+   python examples/main_bt.py
    ```
