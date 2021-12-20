@@ -71,26 +71,16 @@
    pip install -e .
    cd .. 
    ```
-17. Build the web-msgs:
-   ```bash
-   cd catkin_ws
-   catkin build
-   cd ..
-   ```
-18. Add the following line to your `~/.bashrc` file:
-   ```bash
-   source /path/to/iam-interface/catkin_ws/devel/setup.bash
-   ``` 
-19. Install npm packages:
+17. Install npm packages:
    ```bash
    cd web-interface/javascript
    npm install
    ```
-20. Modify Line 1 in `javascript/example/scripts.js` and set it to the ip address of the computer, which you can find using the `ifconfig` command.
+18. Modify Line 1 in `javascript/example/scripts.js` and set it to the ip address of the computer, which you can find using the `ifconfig` command.
    ```bash
    let host_name = "localhost"
    ```
-21. Install DEXTR following the commands below.
+19. Install DEXTR following the commands below.
    ```bash
    cd ../..
    git clone https://github.com/iamlab-cmu/DEXTR-KerasTensorflow.git
@@ -102,7 +92,7 @@
    ./download_dextr_model.sh
    cd ../..
    ```
-22. Install the Azure Kinect Driver and Azure Kinect ROS Driver (Change 18.04 to either 16.04 or 20.04 if you are not using Ubuntu 18.04):
+20. Install the Azure Kinect Driver and Azure Kinect ROS Driver (Change 18.04 to either 16.04 or 20.04 if you are not using Ubuntu 18.04):
    ```bash
    curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
    sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
@@ -112,17 +102,19 @@
    cd catkin_ws/src
    git clone https://github.com/microsoft/Azure_Kinect_ROS_Driver.git
    cd ..
-   catkin build
-   cd ..
-
-   source /path/to/iam-interface/catkin_ws/devel/setup.bash
+   catkin_make
 
    cd /etc/udev/rules.d/
    sudo wget https://raw.githubusercontent.com/microsoft/Azure-Kinect-Sensor-SDK/develop/scripts/99-k4a.rules
    ```
-23. Unplug and Replug in the Azure Kinect into your computer.
+21. Unplug and Replug in the Azure Kinect into your computer.
 
-24. Install the perception and camera-calibration packages:
+22. Add the following line to your `~/.bashrc` file:
+   ```bash
+   source /path/to/iam-interface/catkin_ws/devel/setup.bash
+   ``` 
+
+23. Install the perception and camera-calibration packages:
    ```
    cd /path/to/iam-interface
    cd perception
@@ -133,29 +125,29 @@
    sudo apt install python3-tk python3-empy
    ```
 
-25. Run the Camera Calibration following instructions [https://github.com/iamlab-cmu/camera-calibration](https://github.com/iamlab-cmu/camera-calibration)
+24. Run the Camera Calibration following instructions [https://github.com/iamlab-cmu/camera-calibration](https://github.com/iamlab-cmu/camera-calibration)
 
-26. If CV_bridge gives you issues, follow the following instructions.
+25. If CV_bridge gives you issues, follow the following instructions.
    ```bash
    cd catkin_ws/src
    git clone https://github.com/ros-perception/vision_opencv.git
    cd vision_opencv
    git checkout melodic
    ```
-27. Use a text editor and open the file `cv_bridge/CMakeLists.txt` and change line 11 from `find_package(Boost REQUIRED python37)` to `find_package(Boost REQUIRED python3)`.
+26. Use a text editor and open the file `cv_bridge/CMakeLists.txt` and change line 11 from `find_package(Boost REQUIRED python37)` to `find_package(Boost REQUIRED python3)`.
 
-28. Next run the following commands
+27. Next run the following commands
    ```bash
    cd ../..
 
-   catkin build
+   catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
    source /path/to/iam-interface/catkin_ws/devel/setup.bash
 
    cd /opt/ros/melodic/lib/python2.7/dist-packages
    sudo mv cv_bridge cv_bridge_2.7
    ```
 
-29. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
+28. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
 
 ## Running Instructions
 1. Open a new terminal and run the following commands: (Terminal 1)
