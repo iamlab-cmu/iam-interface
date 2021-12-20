@@ -28,3 +28,9 @@
 [submodule "web-interface"]
 	path = web-interface
 	url = https://github.com/iamlab-cmu/web-interface.git
+[submodule "perception"]
+	path = perception
+	url = https://github.com/iamlab-cmu/perception
+[submodule "camera-calibration"]
+	path = camera-calibration
+	url = https://github.com/iamlab-cmu/camera-calibration.git

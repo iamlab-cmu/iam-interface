@@ -116,7 +116,26 @@
    cd ..
 
    source /path/to/iam-interface/catkin_ws/devel/setup.bash
+
+   cd /etc/udev/rules.d/
+   sudo wget https://raw.githubusercontent.com/microsoft/Azure-Kinect-Sensor-SDK/develop/scripts/99-k4a.rules
    ```
+23. Unplug and Replug in the Azure Kinect into your computer.
+
+24. Install the perception and camera-calibration packages:
+   ```
+   cd /path/to/iam-interface
+   cd perception
+   pip install -e .
+   cd ..
+
+   cd camera-calibration
+   pip install -e .
+   ```
+
+25. Run the Camera Calibration following instructions [https://github.com/iamlab-cmu/camera-calibration](https://github.com/iamlab-cmu/camera-calibration)
+
+26. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
 
 ## Running Instructions
 1. Open a new terminal and run the following commands: (Terminal 1)
