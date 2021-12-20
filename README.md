@@ -95,7 +95,7 @@
    cd ../..
    git clone https://github.com/iamlab-cmu/DEXTR-KerasTensorflow.git
    cd DEXTR-KerasTensorflow
-   pip install matplotlib opencv pillow scikit-learn scikit-image h5py tensorflow keras
+   pip install matplotlib opencv-python pillow scikit-learn scikit-image h5py tensorflow keras
 
    cd models/
    chmod +x download_dextr_model.sh
@@ -130,12 +130,24 @@
    cd ..
 
    cd camera-calibration
-   pip install -e .
+   sudo apt install python3-tk
    ```
 
 25. Run the Camera Calibration following instructions [https://github.com/iamlab-cmu/camera-calibration](https://github.com/iamlab-cmu/camera-calibration)
 
-26. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
+26. If CV_bridge gives you issues, clone the following into the catkin_ws and run catkin build again.
+   ```bash
+   cd catkin_ws/src
+   git clone https://github.com/ros-perception/vision_opencv.git
+   cd vision_opencv
+   git checkout melodic
+   cd ../..
+
+   catkin build
+   source /path/to/iam-interface/catkin_ws/devel/setup.bash
+   ```
+
+27. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
 
 ## Running Instructions
 1. Open a new terminal and run the following commands: (Terminal 1)
