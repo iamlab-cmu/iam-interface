@@ -133,11 +133,7 @@
    git clone https://github.com/ros-perception/vision_opencv.git
    cd vision_opencv
    git checkout melodic
-   ```
-26. Use a text editor and open the file `cv_bridge/CMakeLists.txt` and change line 11 from `find_package(Boost REQUIRED python37)` to `find_package(Boost REQUIRED python3)`.
 
-27. Next run the following commands
-   ```bash
    cd ../..
 
    catkin_make -DPYTHON_EXECUTABLE=/usr/bin/python3 -DPYTHON_INCLUDE_DIR=/usr/include/python3.6m -DPYTHON_LIBRARY=/usr/lib/x86_64-linux-gnu/libpython3.6m.so
@@ -146,8 +142,6 @@
    cd /opt/ros/melodic/lib/python2.7/dist-packages
    sudo mv cv_bridge cv_bridge_2.7
    ```
-
-28. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
 
 ## Running Instructions
 1. Open a new terminal and run the following commands: (Terminal 1)
