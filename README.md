@@ -130,24 +130,32 @@
    cd ..
 
    cd camera-calibration
-   sudo apt install python3-tk
+   sudo apt install python3-tk python3-empy
    ```
 
 25. Run the Camera Calibration following instructions [https://github.com/iamlab-cmu/camera-calibration](https://github.com/iamlab-cmu/camera-calibration)
 
-26. If CV_bridge gives you issues, clone the following into the catkin_ws and run catkin build again.
+26. If CV_bridge gives you issues, follow the following instructions.
    ```bash
    cd catkin_ws/src
    git clone https://github.com/ros-perception/vision_opencv.git
    cd vision_opencv
    git checkout melodic
+   ```
+27. Use a text editor and open the file `cv_bridge/CMakeLists.txt` and change line 11 from `find_package(Boost REQUIRED python37)` to `find_package(Boost REQUIRED python3)`.
+
+28. Next run the following commands
+   ```bash
    cd ../..
 
    catkin build
    source /path/to/iam-interface/catkin_ws/devel/setup.bash
+
+   cd /opt/ros/melodic/lib/python2.7/dist-packages
+   sudo mv cv_bridge cv_bridge_2.7
    ```
 
-27. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
+29. Copy the results from camera-calibration/calib/azure_kinect.intr and camera-calibration/calib/azure_kinect_overhead_to_world.tf to iam-vision/calib.
 
 ## Running Instructions
 1. Open a new terminal and run the following commands: (Terminal 1)
