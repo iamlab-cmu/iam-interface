@@ -73,9 +73,9 @@
    ```
 17. Build the web-msgs:
    ```bash
-   cd iam-interface/catkin_ws
+   cd catkin_ws
    catkin build
-   cd ../..
+   cd ..
    ```
 18. Add the following line to your `~/.bashrc` file:
    ```bash
@@ -100,7 +100,22 @@
    cd models/
    chmod +x download_dextr_model.sh
    ./download_dextr_model.sh
+   cd ../..
+   ```
+22. Install the Azure Kinect Driver and Azure Kinect ROS Driver (Change 18.04 to either 16.04 or 20.04 if you are not using Ubuntu 18.04):
+   ```bash
+   curl -sSL https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+   sudo apt-add-repository https://packages.microsoft.com/ubuntu/18.04/prod
+   sudo apt-get update
+   sudo apt install libk4a1.4 libk4a1.4-dev k4a-tools
+
+   cd catkin_ws/src
+   git clone https://github.com/microsoft/Azure_Kinect_ROS_Driver.git
    cd ..
+   catkin build
+   cd ..
+
+   source /path/to/iam-interface/catkin_ws/devel/setup.bash
    ```
 
 ## Running Instructions
